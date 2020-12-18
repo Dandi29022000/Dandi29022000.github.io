@@ -1,0 +1,208 @@
+<html>
+    <head>
+        <title>
+            Biodata Mahasiswa
+        </title>
+        <link rel="stylesheet" type="text/css" media="all" href="style1.css">
+    </head>
+
+    <body>
+        <div id="layout">
+            <div id="header">
+                <img src="img/Mt-Bromo-Indonesia-Intrepid.jpg" class="header">
+            </div>
+
+            <div id="menu">
+                <ul>
+                    <li><a href="beranda.html">Beranda</a></li>
+                    <li><a href="biodata.html">Profil</a></li>
+                    <li><a href="menu.html">Menu</a></li>
+                    <li><a href="pemesanan.html">Pemesanan</a></li>
+                </ul>
+            </div>
+
+            <div id="runningtext">
+                <marquee behavior="scroll" scrollamount="3" onmouseover="this.stop();" onmouseout="this.start();" direction="left">
+                    SELAMAT DATANG DI WEBSITE KAMI! RUMAH MAKAN AYAM GEPREK WARZUQNI FACTORY
+                </marquee>
+            </div>
+
+            <div class="content">
+                <header>
+                    <div style="height: 30px;
+                                width: 500px;
+                                text-align: center;
+                                margin-top: 20px;
+                                margin-left: 250px">	
+                                <h1>Form Pemesanan</h1>
+                </header>
+                    <table>
+                        <tr>
+                            <td><label for="id_pembeli" color= "white">ID Pembeli</label></td>
+                            <td><input type="text" id="id_pembeli" name="id_pembeli" required> </td> 
+                        </tr>
+                        
+                        <tr>
+                            <td><label for="nama_pembeli">Nama Pembeli</label></td>
+                            <td><input type="text" id="nama_pembeli" name="nama_pembeli" required></td>
+                        </tr>
+                        
+                        <tr>
+                            <td><label for="status_pembeli">Status Pembeli </label></td>
+                            <td><input type="radio" id="status_pembeli" name="status_pembeli" value="Member" checked required>&nbsp;<label>Member</label></td>
+                            <td><input type="radio" id="status_pembeli" name="status_pembeli" value="Non Member" required>&nbsp;</td>
+                            <td><label>Non Member</label><br></td>
+                            <br>
+                        </tr>
+                        
+                        <tr>
+                            <td><label for="nama_makanan">Makanan Yang Tersedia</label></td>
+                            <td>
+                                <select id="nama_makanan" name="nama_makanan">
+                                    <option value="a">Ayam Geprek Sambel Bawang = Rp. 12.000</option>
+                                    <option value="b">Ayam Geprek Original = Rp. 14.000</option>
+                                    <option value="c">Ayam Geprek Sambel Bonyok = Rp. 15.000</option>
+                                    <option value="d">Ayam Geprek Sambel Jontor = Rp. 16.000</option>
+                                    <option value="e">Ayam Kampung Gepuk = Rp. 23.000</option>
+                                    <option value="f">Lalapan Ayam Kampung = Rp. 23.000</option>
+                                    <option value="g">Bebek Gepuk = Rp. 23.000</option>
+                                    <option value="h">Lalapan Bebek = Rp. 23.000</option>
+                                    <option value="i">Chicken Black Pepper = Rp. 13.000</option>
+                                    <option value="j">Chicken Hot Blast = Rp. 13.000</option>
+                                    <option value="k">Chicken Barbeque = Rp. 13.000</option>
+                                    <option value="l">Chicken Teriyaki = Rp. 13.000</option>
+                                    <option value="m">Ayam Popcorn Pedas = Rp. 10.000</option>
+                                    <option value="n">Jamur Krispi Original = Rp. 6.000</option>
+                                    <option value="o">Onion Ring Original = Rp. 7.000</option>
+                                    <option value="p">Kentang Goreng Original = Rp. 8.000</option>
+                                    <option value="q">Nasi Telur Pontianak = Rp. 8.000</option>
+                                    <option value="r">Lalapan Lele = Rp. 10.000</option>
+                                    <option value="s">Lalapan Tahu Tempe =  Rp 7.000</option>
+                                    <option value="t">Lalapan Telur = Rp. 7.000</option>
+                                </select>
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td><label for="jumlah">Jumlah</label></td>
+                            <td><input type="number" id="jumlah" name="jumlah" required></td>
+                        </tr>
+
+                        <tr>
+                            <td><button type="submit" id="submit" name="submit" class="button" onclick="form_process()">Submit</button></td>
+                            <td><div id="hasil_submit"></div></td>
+                        </tr>
+                    </table>
+                                            
+                    <br><br>
+                    <script>
+                        var menu = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l",
+                                    "m", "n", "o", "p", "q", "r", "s", "t"];
+        
+                        function form_process() {
+                            var harga_makanan = 0;
+                            var diskon = 0;
+                            var id_pembeli = document.getElementById('id_pembeli').value;
+                            var nama_pembeli = document.getElementById('nama_pembeli').value;
+                            var status_pembeli = document.querySelector('input[name = status_pembeli]:checked').value;
+                            var nama_makanan = document.getElementById('nama_makanan').value;
+                            var jumlah = document.getElementById('jumlah').value;
+        
+                            if(nama_makanan == "a") {
+                                harga_makanan = 12000;
+                            } 
+                            else if(nama_makanan == "b") {
+                                harga_makanan = 14000;
+                            } 
+                            else if(nama_makanan == "c") {
+                                harga_makanan = 15000;
+                            } 
+                            else if(nama_makanan == "d") {
+                                harga_makanan = 16000;
+                            } 
+                            else if(nama_makanan == "e") {
+                                harga_makanan = 23000;
+                            }
+                            else if(nama_makanan == "f") {
+                                harga_makanan = 23000;
+                            }
+                            else if(nama_makanan == "g") {
+                                harga_makanan = 23000;
+                            } 
+                            else if(nama_makanan == "h") {
+                                harga_makanan = 23000;
+                            } 
+                            else if(nama_makanan == "i") {
+                                harga_makanan = 13000;
+                            } 
+                            else if(nama_makanan == "j") {
+                                harga_makanan = 13000;
+                            }
+                            else if(nama_makanan == "k") {
+                                harga_makanan = 13000;
+                            }
+                            else if(nama_makanan == "l") {
+                                harga_makanan = 13000;
+                            } 
+                            else if(nama_makanan == "m") {
+                                harga_makanan = 10000;
+                            } 
+                            else if(nama_makanan == "n") {
+                                harga_makanan = 6000;
+                            } 
+                            else if(nama_makanan == "o") {
+                                harga_makanan = 7000;
+                            }
+                            else if(nama_makanan == "p") {
+                                harga_makanan = 8000;
+                            }
+                            else if(nama_makanan == "q") {
+                                harga_makanan = 8000;
+                            } 
+                            else if(nama_makanan == "r") {
+                                harga_makanan = 10000;
+                            } 
+                            else if(nama_makanan == "s") {
+                                harga_makanan = 7000;
+                            }
+                            else if(nama_makanan == "t") {
+                                harga_makanan = 7000;
+                            }
+        
+                            if (status_pembeli == 'member') {
+                                if(jumlah == 1) {
+                                    diskon = harga_makanan * 0.05;
+                                } 
+                                else if(jumlah <= 3) {
+                                    diskon = harga_makanan * 0.07;
+                                }
+                                else {
+                                    diskon = harga_makanan * 0.1;
+                                }
+                            }
+                            else if (status_pembeli == 'non_member') {
+                                if(jumlah <= 3) {
+                                    diskon = 0;
+                                } 
+                                else if(jumlah <= 5) {
+                                    diskon = (harga_makanan * jumlah) * 0.05;
+                                } 
+                                else {
+                                    diskon = harga_makanan * 0.05;
+                                }
+                            }
+        
+                            total = (harga_makanan * jumlah) - diskon;
+                            var par = document.createElement("h4")
+                            var node = document.createTextNode(
+                                "Total : " + total
+                                )
+                            par.appendChild(node)
+                            document.getElementById("hasil_submit").appendChild(par)
+                        }
+                    </script>
+
+            <div id="footer"> &copy 06 November 2020, by Dandi Agung Setiawan</div>
+        </div>
+    </body>
+</html>
